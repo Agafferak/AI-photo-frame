@@ -1,0 +1,11 @@
+[Unit]
+Description=Gallery Viewer
+
+[Service]
+ExecStart=feh --fullscreen --slideshow-delay 15 "$IMAGE_DIR" --auto-zoom
+Restart=always
+EnvironmentFile=/etc/env_shared
+
+
+[Install]
+WantedBy=multi-user.target
