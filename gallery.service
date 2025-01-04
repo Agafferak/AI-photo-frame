@@ -3,7 +3,7 @@ Description=Gallery Viewer
 
 [Service]
 ExecStart=feh --fullscreen --slideshow-delay 15 "$IMAGE_DIR" --auto-zoom
-Restart=always
+Restart=on-failure
 EnvironmentFile=/etc/env_shared
 
 

@@ -1,3 +1,7 @@
 # Папка с изображениями
 IMAGE_DIR="project/output"
+SD_PROMPT="An abstract painting of a Dalí"
+echo 'export PATH=$PATH:"/OnnxStream/src/build/' >> ~/.bashrc
+source ~/.bashrc
+
 

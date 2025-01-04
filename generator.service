@@ -1,0 +1,11 @@
+[Unit]
+Description=Gallery Generator
+
+[Service]
+ExecStart=sd --rpi --steps 3 --output $IMAGE_DIR --prompt $SD_PROMPT
+Restart=on-failure
+EnvironmentFile=/etc/env_shared
+
+
+[Install]
+WantedBy=multi-user.target
