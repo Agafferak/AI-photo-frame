@@ -22,11 +22,13 @@ fi
 TIMESTAMP=$(date +%s)
 OUTPUT_FILE="/project/output/generated_$TIMESTAMP.png"
 
+mkdir -p /project/output/
+
 cd /home/orangepi/OnnxStream/src/build/ || exit 1
 
 ./sd --prompt "$PROMPT" --steps 3 --rpi --output "$OUTPUT_FILE"
 
 echo "✅ Генерация завершена. Изображение сохранено в: $OUTPUT_FILE"
 
-# Запуск галереи
-bash gallery.sh
+# Запуск галереи из текущего каталога скрипта
+bash "$(dirname "$0")/gallery.sh"
