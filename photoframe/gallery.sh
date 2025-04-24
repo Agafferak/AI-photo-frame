@@ -1,19 +1,11 @@
 #!/bin/bash
 
+# Загружаем параметры
 source ./config.cfg
 
-echo "=== Галерея изображений ==="
-echo "Промпт: $PROMPT"
-echo "Задержка между изображениями: $DELAY секунд"
-echo "Изображения из: $IMAGE_DIR"
-echo "Сгенерированные изображения из: /project/output/"
-echo "Нажмите Ctrl+C для выхода."
-
-while true; do
-    for img in "$IMAGE_DIR"/*.png /project/output/*.png; do
-        if [[ -f "$img" ]]; then
-            fbi -T 1 -d /dev/fb0 --noverbose "$img" 2>/dev/null
-            sleep "$DELAY"
-        fi
-    done
+# Показ изображений из указанной директории
+for IMAGE in "$OUTPUT_DIR"/*.png; do
+    # Отображаем изображение с помощью fbi
+    fbi -T 1 -a "$IMAGE" > /dev/null 2>&1
+    sleep "$DELAY"
 done
