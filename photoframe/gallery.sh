@@ -3,9 +3,17 @@
 # Загружаем параметры
 source ./config.cfg
 
-# Показ изображений из указанной директории
-for IMAGE in "$OUTPUT_DIR"/*.png; do
-    # Отображаем изображение с помощью fbi
-    fbi -T 1 -a "$IMAGE" > /dev/null 2>&1
-    sleep "$DELAY"
+# Жёстко задаём путь к папке с изображениями
+OUTPUT_DIR="/home/orangepi/project/photoframe/output"
+
+# Отображение изображений из OUTPUT_DIR
+while true; do
+  # Показать все PNG по порядку
+  for IMAGE in "$OUTPUT_DIR"/*.png; do
+    # Проверка, существует ли файл
+    if [ -f "$IMAGE" ]; then
+      fbi -T 1 -a "$IMAGE" > /dev/null 2>&1
+      sleep "$DELAY"
+    fi
+  done
 done
