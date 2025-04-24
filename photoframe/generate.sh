@@ -34,4 +34,4 @@ cd /home/orangepi/OnnxStream/src/build/ || exit 1
 echo "✅ Генерация завершена. Изображение сохранено в: $OUTPUT_FILE"
 
 # Запуск галереи
-bash "$(dirname "$0")/gallery.sh"
+bash /home/orangepi/project/photoframe/gallery.sh
